@@ -12,13 +12,13 @@ app.get('/users', (req, res) => {
     res.send('GET request received');
 });
 
-app.get('/users/:username', (req, res) => {
+app.get('/users/{:username}', (req, res) => {
     console.log(req.params.username);
     res.send('GET request received');
 });
 
 app.post('/', (req, res) => {
-    console.log('INSIDE POST ROUTE');
+    console.log(req.params.username);
     res.send('POST request received');
 });
 
