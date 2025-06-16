@@ -1,89 +1,42 @@
-const express = require('express');
+const express = require ('express');
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log('INSIDE MIDDLEWARE');
-    next();
-});
 
-// app.get('/users', (req, res) => {
-//     console.log('INSIDE ROUTE GET');
-//     res.status (201).send('GET request received');
+// app.get('/users/{:id}',(req,res)=>{
+//     if (!req.params.id) return res.send(users)
     
-// });
+    
+//         const user = users.find((user)=> user.id === parseInt(req.params.id))
+//         if (!user) return res.status(404).send({message: "User ot found"})
+//         res.send(user)
+//     });
 
-// app.post('/users', (req, res) => {
-//     console.log('INSIDE ROUTE POST');
-//     res.status (200).send('POST request received');
-// });
-
-app.put('/users', (req, res) => {
-    console.log('INSIDE ROUTE PUT');
-    res.status (200).send('PUT request received');
-});
-
-app.delete('/users', (req, res) => {
-    console.log('INSIDE ROUTE DELETE');
-    res.status(204).send('DELETE request received');
-});
-
-app.get('/users/{:username}', (req, res) => {
-    console.log(req.params.username);
-    res.send('GET request received');
-});
-
-app.post('/', (req, res) => {
-    console.log(req.params.username);
-    res.send('POST request received');
-});
-const users = []
-
-function createUserID() {
-    return Date.now();
-}
-
-app.post('/users', (req, res) => {
-    let newUser = {
-        id: createUserID(),
-        username: 'farrukh',
-        age: 34,
-    };
-    users.push(newUser);
-    console.log(users);
-    res.status(200).send('User created');
-});
-
-function isUserIdMatch(u, userId) {
-    return u.id === userId;
-}
-
-
-app.get('/users/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
-    const user = users.find(function(u) {
-        return isUserIdMatch(u, userId);
-    });
-    if (user) {
-        res.status(200).json(user);
-    } else {
-        res.status(404).send('User not found');
+app.get('/users/:id',(req,res)=>{
+    if (!req.params.id) {
+        return new Error("ID required")
     }
-});
-
-
-app.get('/users/username/:username', (req, res) => {
-    const username = req.params.username;
-    const user = users.find(function(u) {
-        return u.username === username;
+    
+        const user = users.find((user)=> user.id === parseInt(req.params.id))
+        if (!user) return res.status(404).send({message: "User ot found"})
+        res.send(user)
     });
-    if (user) {
-        res.status(200).json(user);
-    } else {
-        res.status(404).send('User not found');
-    }
-});
 
-app.listen(3000, () => {
-    console.log('Server is running on Port 3000');
-});
+app.post('/users', (req,res)=>{
+
+    const user ={
+        id: Date.now(),
+        first_name: 'John',
+        last_name: 'john_doe',
+        email: 'johndoe@example.com',
+        age: 23,
+        gender:'male'
+    }
+    users.push(user)
+    res.status(201).send({message})
+})
+
+
+app.listen(3000, ()=>{
+    console.log('server is running on po.rt 3000')
+})
