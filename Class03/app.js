@@ -2,7 +2,11 @@ const express = require('express');
 const fs = require('fs');
 const { readFile, writeFile } = require('fs/promises');
 
-let users
+const users = []
+
+const sessions = {
+    'asdas123': 123
+}
 
 const app = express();
 
@@ -32,7 +36,7 @@ app.use((req, res ,next) => {
  * CREATE NEW USER
  */
 function createUserValidator(req, res, next) {
-  if (!req.body.first_name || !req.body.last_name || !req.body.username || !req.body.email || !req.body.age || !req.body.gender) {
+  if (!req.body.first_name || !req.body.last_name || !req.body.username && !req.body.passord|| !req.body.email || !req.body.age || !req.body.gender) {
     return res.status(400).send({ message: 'All fields are required' })
   }
   next()
@@ -48,20 +52,27 @@ app.post('/users', createUserValidator, async (req, res) => {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     username: req.body.username,
+    passord: req.body.password,
     email: req.body.email,
     age: req.body.age,
     gender: req.body.gender
   }
 
   users.push(user)
-
-  await writeFile('data/users.json', JSON.stringify(users),'utf8', (err) => {
-    if (err) throw err;
-  })
-
+d
   res.status(201).send({ message: 'User successfully created', user });
 
 })
+app.post ('./login', (req,res)=>{
+    const user = users.find
+    //1 credentials cladiate
+    //1b incease of ailure, return error
+    //2 create session id
+    //3 set user session
+    //4 response user with session id
+
+})
+
 
 /**
  * READ ALL USERS
