@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+      .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .product-box {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 20px;
+        width: 250px;
+        box-shadow: 2px 2px 8px #eee;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+  <h2>Product Page</h2>
+  <div class="products-container">
+    <% products.forEach(function(product) { %>
+      <div class="product-box">
+        <% if(product.name === 'VaporFly NEXT%') { %>
+          <a href="/vaporfly"><strong><%= product.name %></strong></a>
+        <% } else { %>
+          <strong><%= product.name %></strong>
+        <% } %>
+        <% if(product.type === 'shoes' && product.image) { %>
+          <br>
+          <img src="<%= product.image %>" alt="<%= product.name %>" width="200">
+        <% } %>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>
