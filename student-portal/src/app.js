@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Import routes
-const routes = require('./routes/index');
+const routes = require('./routes/routes');
 app.use('/', routes);
 
 // Database synchronization
