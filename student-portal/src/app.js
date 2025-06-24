@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const sequelize = require('./models/db');
 
 // Middleware
 app.use(express.json());
@@ -13,6 +14,11 @@ app.set('views', path.join(__dirname, 'views'));
 // Import routes
 const routes = require('./routes/index');
 app.use('/', routes);
+
+// Database synchronization
+sequelize.sync().then(() => {
+  console.log('Database synced');
+});
 
 // Start the server
 const PORT = 3000;
