@@ -1,0 +1,13 @@
+<%- include('partials/header', {title:product.name}) %>
+    <div class="container">
+        <h1 class="title"><%= (product)? product.name: '' %></h1>
+        <div class="products-container">
+            <% if (product) { %>
+            <%- include('partials/product-card', {product}) %>
+            <% } %>
+        </div>
+        <a href="/products" style="display: flex; justify-content: center; margin-top: 30px;">
+            <button class="back-btn">Back to Product</button>
+        </a>
+    </div>
+<%- include('partials/footer') %>

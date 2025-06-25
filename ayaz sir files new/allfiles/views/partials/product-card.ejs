@@ -1,0 +1,30 @@
+<div class="product-card">
+                <% if (product.discountPer) { %>
+                <div class="discountPer">
+                    <%= product.discountPer %>% Off
+                </div>
+                <% } %>
+                <a href="/products/<%= product.slug %>">                    
+                    <div class="card-img">
+                        <img src="<%= product.image %>" alt="<%= product.name %>">
+                    </div>
+                    <div class="card-body">
+                        <div class="text">
+                            <h3 class="name"><%= product.name %></h3>
+                            <p class="price">
+                                <span style="<%= (product.discountPrice) ? 'text-decoration: line-through; color: gray; margin-right: 8px; ' : '' %>">
+                                    $ <%= product.price %>
+                                </span>
+                                <% if (product.discountPrice) { %>
+                                <span>
+                                    $ <%= product.discountPrice %>
+                                </span>
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="action">
+                            <button>Add to Cart</button>
+                        </div>
+                    </div>
+                </a>
+            </div>        

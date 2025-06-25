@@ -1,0 +1,10 @@
+<%- include('partials/header', {title:'My products'}) %>
+    <div class="container">
+        <h1 class="title">Shop Our Products</h1>
+        <div class="products-container">
+            <% products.forEach((product) => { %>
+            <%- include('partials/product-card', {product}) %>
+            <% }); %>
+        </div>
+    </div>
+<%- include('partials/footer')  %>
