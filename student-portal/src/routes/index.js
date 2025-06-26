@@ -1,16 +1,11 @@
 const express = require('express');
-const IndexController = require('../controllers');
+const IndexController = require('../controllers/index');
 
 const router = express.Router();
 const indexController = new IndexController();
 
 // Home page
 router.get('/', indexController.home.bind(indexController));
-
-// Home page (GET)
-router.get('/', (req, res) => {
-  res.render('index');
-});
 
 // Login page (GET)
 router.get('/login', (req, res) => {
