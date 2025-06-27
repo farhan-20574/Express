@@ -1,0 +1,14 @@
+student-portal/
+└── src/
+    └── views/
+        └── partials/
+            ├── header.ejs
+            ├── navbar.ejs
+            ├── hero.ejs
+            ├── feature.ejs
+            ├── cta.ejs
+            ├── footer.ejs
+            ├── scripts.ejs
+            ├── analytics.ejs
+            ├── ads.ejs
+            └── notifications.ejs
