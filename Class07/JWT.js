@@ -1,6 +1,6 @@
 const express = require('express');
 app = express();
-const 
+const jwt = require('JWT');
 
 
 // Set EJS as the view engine
