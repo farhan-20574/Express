@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - Student Portal</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome, <%= user.first_Name %> <%= user.last_Name %>!</h1>
+  </header>
+  <div class="container">
+    <h2>Profile Details</h2>
+    <ul>
+      <li><strong>Username:</strong> <%= user.username %></li>
+      <li><strong>Email:</strong> <%= user.email %></li>
+      <li><strong>First Name:</strong> <%= user.first_Name %></li>
+      <li><strong>Last Name:</strong> <%= user.last_Name %></li>
+    </ul>
+    <a href="/logout">Logout</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Student Portal</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Student Portal Login</h1>
+  </header>
+  <div class="container">
+    <h2>Login</h2>
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color: red;">Invalid username or password.</p>
+    <% } %>
+    <form action="/login" method="POST">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div style="margin-top: 1rem;">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div style="margin-top: 1rem;">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
