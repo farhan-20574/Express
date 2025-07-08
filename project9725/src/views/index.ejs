@@ -1,9 +1,14 @@
 <%- include('./partials/header') -%>
-<main>
-    <h1>Welcome to the Student Portal</h1>
-    <p>This is your Express + EJS project.</p>
-    <div class="features">
-        <% include('partials/feature') %>
-    </div>
-</main>
+<%- include('./partials/navbar') -%>
+<body>
+<header>
+    <h1>Student Portal</h1>
+</header>
+<div class="container">
+    <h2>Home Page</h2>
+    <p>Welcome to the Student Portal. This is your Express + EJS project.</p>
+    <p>Use the navigation links to explore the portal.</p>
+    <p>Feel free to register or log in to access more features.</p>
+    <p>For any issues, please contact support.</p>
+</div>
 <%- include ('./partials/footer.ejs'); -%>
