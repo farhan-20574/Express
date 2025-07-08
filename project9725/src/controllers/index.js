@@ -1,7 +1,8 @@
 class IndexController {
     home(req, res) {
-      res.render('index');
+        console.log('Home controller called');
+        res.render('index');
     }
-  }
-  
-  module.exports = IndexController;
+}
+
+module.exports = IndexController;

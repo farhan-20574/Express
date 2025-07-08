@@ -1,6 +1,12 @@
-<% include partials/header %>
-    <div class="container">
-        <h1>Welcome to Project9725!</h1>
-        <p>This is your Express + EJS project.</p>
+<% include('./partials/header') %>
+<main>
+    <h1>Welcome to the Student Portal</h1>
+    <p>This is your Express + EJS project.</p>
+    <div class="features">
+        <% include('partials/feature') %>
     </div>
- <% include partials/footer %>
+</main>
+<% include('partials/footer') %>
+<%- include('partials/header'); %>
+<%- include ('./partials/body.ejs'); %>
+<%- include ('./partials/footer.ejs'); %>

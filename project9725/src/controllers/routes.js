@@ -1,16 +1,11 @@
 const express = require('express');
-const IndexController = require('.');
+const IndexController = require('./index'); // Adjust path if needed
 
 const router = express.Router();
 const indexController = new IndexController();
 
-// Home page
+// Home page (handled by controller)
 router.get('/', indexController.home.bind(indexController));
-
-// Home page (GET)
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
-});
 
 // Login page (GET)
 router.get('/login', (req, res) => {
