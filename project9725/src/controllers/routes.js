@@ -9,7 +9,7 @@ router.get('/', indexController.home.bind(indexController));
 
 // Home page (GET)
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { title: 'Home' });
 });
 
 // Login page (GET)
