@@ -27,4 +27,22 @@ router.get('/dashboard', (req, res) => {
   res.render('dashboard');
 });
 
+// Forgot password page (GET)
+router.get('/forget', (req, res) => {
+  res.render('forget');
+});
+
+// register new user page (GET)
+router.get('/register', (req, res) => {
+  res.render('register');
+});
+
+// profile page (GET)
+router.get('/profile', (req, res) => {
+  res.render('profile');
+});
+
+
+
+
 module.exports = router;
