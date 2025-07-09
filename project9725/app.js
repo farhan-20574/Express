@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
     //index.ejs        # Homepage template
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
-app.set('views', './project9725/src/views');
+app.set('views', path.join(__dirname, './src/views'));;
 
 
 
