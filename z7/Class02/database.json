@@ -1,0 +1,23 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "created_at": "2025-07-15T07:02:37.330Z",
+            "first_name": "",
+            "last_name": "",
+            "password": "1234",
+            "username": "pakistani123",
+            "email": "pakistani@techpark.com"
+        },
+        {
+            "id": 2,
+            "created_at": "2025-07-15T07:03:13.732Z",
+            "first_name": "",
+            "last_name": "",
+            "password": "1234",
+            "username": "karachi123",
+            "email": "karachi@techpark.com",
+            "deleted_at": "2025-07-15T07:06:17.193Z"
+        }
+    ]
+}
