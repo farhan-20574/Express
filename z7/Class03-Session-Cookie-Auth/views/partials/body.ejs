@@ -1,0 +1,20 @@
+<body>
+  <h2>Product Page</h2>
+  <div class="products-container">
+    <% products.forEach(function(product) { %>
+      <a href="/products/<%=products.slug%>"><strong><%= product.name %></strong>>
+      <div class="product-box">
+        <% if(product.name ) { %>
+          <a href="/vaporfly"><strong><%= product.name %></strong></a>
+        <% } else { %>
+          <strong><%= product.name %></strong>
+        <% } %>
+        <% if(product.type === 'shoes' && product.image) { %>
+          <br>
+          <img src="<%= product.image %>" alt="<%= product.name %>" width="200">
+        <% } %>
+      </div>
+      </a>
+    <% }); %>
+  </div>
+</body>
