@@ -1,2 +1,123 @@
 names
+const express = require('express');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+
+const users = [
+    {
+        id: 1,
+        username: "myuser",
+        password: "1234"
+    }
+]
+
+const sessions = {
+   
+}
+
+app.get('/login', (req, res) => {
+    res.end();
+});
+
+
+
+
+// Example route
+app.post('/login', (req, res) => {
+    const { username, password } = req.body || {};
+    if (!username || !password) return res.status(422).send('Username and password are required');
+    const user = users.find(u => u.username === username && u.password === password);
+    if (!user) return res.status(401).send('Invalid credentials');
+
+    const sessionId = Math.ceil(Math.random() * 1000000);
+    sessions[sessionId] = user.id;
+    res.setHeader('Set-Cookie', `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=3600`);
+    res.send({
+        massege: 'Login successful',
+    });
+});
+
+const checkAuth = (req, res, next) => {
+    const {sessionId} = req.body || {};
+    if (!sessionId || !sessions[sessionId]) return res.status(401).send('Unauthorized');
+    next();
+};
+app.get('/dashboard', checkAuth, (req, res) => {
+    res.send('Welcome to the dashboard');
+})
+
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
+});
+
+
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const { randomUUID } = require('crypto');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(express.json());
+app.use(cookieParser());
+
+const users = [
+    {
+        id: 1,
+        username: "myuser",
+        password: "1234"
+    }
+];
+
+const sessions = {};
+
+// GET login page (optional)
+app.get('/login', (req, res) => {
+    res.end();
+});
+
+// POST login
+app.post('/login', (req, res) => {
+    const { username, password } = req.body || {};
+
+    if (!username || !password) {
+        return res.status(422).send('Username and password are required');
+    }
+
+    const user = users.find(u => u.username === username && u.password === password);
+    if (!user) return res.status(401).send('Invalid credentials');
+
+    const sessionId = randomUUID(); // secure unique ID
+    sessions[sessionId] = user.id;
+
+    res.setHeader('Set-Cookie', `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=3600`);
+    res.send({ message: 'Login successful' });
+});
+
+// Middleware to check session from cookies
+const checkAuth = (req, res, next) => {
+    const sessionId = req.cookies.sessionId;
+
+    if (!sessionId || !sessions[sessionId]) {
+        return res.status(401).send('Unauthorized');
+    }
+
+    req.userId = sessions[sessionId]; // optionally pass userId to route
+    next();
+};
+
+// Protected route
+app.get('/dashboard', checkAuth, (req, res) => {
+    res.send(`Welcome to the dashboard, user ID: ${req.userId}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+});
 
