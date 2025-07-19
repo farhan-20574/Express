@@ -31,7 +31,7 @@ app.post('/login', (req, res) => {
     const user = users.find(u => u.username === username && u.password === password);
     if (!user) return res.status(401).send('Invalid credentials');
 
-    const sessionId = Math.ceil(Math.random() * 1000000);
+    const sessionId = Math.ceil(Math.random() * 1000000).toString();
     sessions[sessionId] = user.id;
     res.setHeader('Set-Cookie', `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=3600`);
     res.send({
@@ -39,7 +39,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-function cookiePaser(headers) {
+function cookieParser(headers) {
     
     if (!headers.cookie) return ;
     for (let index = 0; index < headers.cookie.length; index++) {
@@ -50,7 +50,7 @@ function cookiePaser(headers) {
     }
 
     app.use((req, res, next) => {
-        const cookies = cookiePaser(req.headers)   
+        const cookies = cookieParser(req.headers)   
         [cookies[0] = cookies]
         next()
     })

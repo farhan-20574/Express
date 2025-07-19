@@ -121,3 +121,7 @@ app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
 
+big tech
+
+Devsinc, Systems, Tkxl etc
+https://www.glassdoor.com/index.htm
