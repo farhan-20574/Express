@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
 
 
+
+
 //views                # Contains EJS view templates
     //index.ejs        # Homepage template
 // Set the view engine to EJS
@@ -28,7 +30,6 @@ app.use('/', routes);
 //utils                # Utility functions
     //jwt.js            # JWT utility functions
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT=3000;
 app.listen(PORT,()=>{
