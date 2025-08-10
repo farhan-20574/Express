@@ -1,5 +1,25 @@
 {
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/farhan-20574/Express#readme",
+  "bugs": {
+    "url": "https://github.com/farhan-20574/Express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhan-20574/Express.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "express": "^5.1.0"
-  }
+    "express": "^5.1.0",
+    "node": "^22.18.0"
+  },
+  "devDependencies": {}
 }
