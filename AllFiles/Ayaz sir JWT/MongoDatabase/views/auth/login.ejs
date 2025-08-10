@@ -1,0 +1,23 @@
+<%- include('../partials/header', {title: 'Login', isAuthenticated:isAuthenticated}); %>
+    <main>
+        <div id="logo">
+            TECHPARK
+        </div>
+        <form action="/login" method="post">
+            <% if(formData.errors?.error){ %>
+            <p style="background-color: rgb(255, 178, 178); padding: 4px; color: red; text-align:center"><%= formData.errors?.error %></p>
+            <% } %>
+            <div class="form-control">
+                <label for="username">username</label>
+                <input type="text" placeholder="username" name="username" id="username" value="<%= formData.username %>"/>
+            </div>
+            <div class="form-control">
+                <label for="password">password</label>
+                <input type="password" placeholder="password" name="password" id="password"/>
+            </div>
+            <div class="form-control">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </main>
+<%- include('../partials/footer'); %>

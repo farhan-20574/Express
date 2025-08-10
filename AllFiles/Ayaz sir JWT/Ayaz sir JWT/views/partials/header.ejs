@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHPARK | <%= title %></title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding:0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body {
+            background-color: rgb(15, 147, 247);
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        main {
+            width:100%;
+            max-width: 400px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: black 0px 0px 20px -10px;;
+        }
+        #logo {
+            text-align: center;
+            color: rgb(1, 23, 79);
+            font-weight: 900;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (max-width: 320px) {
+            main {
+                max-width: 300px;
+            }
+        }
+        .form-control {
+            margin-bottom: 1rem;
+        }
+        label {
+            color: rgb(109, 109, 109);
+            margin-left: 8px;
+            font-size: 1rem;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgb(109, 109, 109);
+            border-radius: 0.25rem;
+        }
+        button {
+            /* all: unset; */
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            border: unset;
+            background-color: rgb(15, 147, 247);
+        }
+    </style>
+</head>
+<body>
